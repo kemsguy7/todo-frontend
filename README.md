@@ -1,255 +1,289 @@
-# Ticket City - Technical Documentation
+# TaskMaster Pro - Frontend
 
-'Ticket_City contract successfully deployed to': '0x6fd1F53799bC0312a98C36eBA030d3aA7B68264f'
+A modern, responsive React application for advanced todo management with priority levels, categories, due dates, and comprehensive filtering capabilities.
 
-## Smart Contract Architecture
+## 🚀 Features
 
-### Core Components
+- **Modern UI/UX** - Clean, intuitive interface with responsive design
+- **Real-time Updates** - Live todo management with instant feedback
+- **Priority Color Coding** - Visual priority indicators (Low: Green, Medium: Yellow, High: Red)
+- **Smart Categories** - Organize todos by work, personal, or custom categories
+- **Due Date Intelligence** - Shows "Today", "Tomorrow", "Overdue" indicators
+- **Advanced Search & Filter** - Multi-criteria filtering with real-time search
+- **Statistics Dashboard** - Visual analytics and completion tracking
+- **Inline Editing** - Edit todos directly in the list view
+- **Keyboard Shortcuts** - Efficient task management
+- **Dark/Light Themes** - Modern design with TailwindCSS
+- **Mobile Responsive** - Works perfectly on all devices
+- **Performance Optimized** - Fast loading with Vite bundler
 
-1. `Ticket_City.sol`: Main contract handling event logic and XFI payments
-2. `Ticket_NFT.sol`: Non-transferable NFT implementation for event tickets
-3. `Types.sol`: Data structures and enums
-4. `Errors.sol`: Custom error definitions
+## 🛠️ Tech Stack
 
-#### Security Measures
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite (fast development and building)
+- **Styling**: TailwindCSS for modern, responsive design
+- **Icons**: Lucide React for beautiful, consistent icons
+- **HTTP Client**: Axios for API communication
+- **Date Handling**: date-fns for date manipulation
+- **State Management**: React Hooks (useState, useEffect, custom hooks)
+- **Development**: Hot Module Replacement (HMR) with Vite
 
-- NonReentrant guard for payment functions
-- Event organizer verification
-- Minimum attendance rate requirements
-- Revenue release conditions
-
-### Smart Contract Interactions
-
-#### Event Creation Flow
-
-```mermaid
-graph TD
-    A[Organizer] -->|Creates Event| B[Ticket_City Contract]
-    B -->|Deploys| C[NFT Contract]
-    B -->|Sets| D[Ticket Types]
-    D -->|FREE| E[Single Ticket Type]
-    D -->|PAID| F[Regular/VIP Options]
-```
-
-#### Ticket Purchase Flow
-
-```mermaid
-graph TD
-    A[Attendee] -->|Sends XFI| B[Ticket_City Contract]
-    B -->|Validates Payment| C[Payment Validation]
-    C -->|Success| D[Mint NFT Ticket]
-    D -->|Updates| E[Event Records]
-```
-
-#### Authentication Flow
-
-- Web2-like auth flow during which an embedded evm wallet will be created for the users
-- A web3 auth for guest users
-
-### Key Features Implementations
-
-- Event creation with flexible ticket types (FREE/PAID)
-- Ticket categories: Regular and VIP for paid events
-- Revenue management through XFI native token
-- Attendance tracking and verification system
-- Tickets issued as NFTs for security
-- Automated ticket pricing based on demand (Future Implementation)
-- Event discovery tools, including referral programs and discount codes (Future Implementation)
-- Stablecoins payment (Future Implementation)
-
-### Payments & Refunds
-
-- Tickets purchased using XFI
-- Organizers pay a small platform service fee (30 XFI) for paid events
-- Ticket payments held safely until the event ends
-- If an event is canceled, attendees get a refund plus a 2 XFI gas fee compensation from the organiser (Future Implementation)
-
-### Key Features Implementations
-
-- Event creation with flexible ticket types (FREE/PAID)
-- Ticket categories: Regular and VIP for paid events
-- Revenue management through XFI native token
-- Attendance tracking and verification system
-- Tickets issued as NFTs for security
-- Automated ticket pricing based on demand (Future Implementation)
-- Event discovery tools, including referral programs and discount codes (Future Implementation)
-- Stablecoins payment (Future Implementation)
-
-### Payments & Refunds
-
-- Tickets purchased using XFI
-- Organizers pay a small platform service fee (30 XFI) for paid events
-- Ticket payments held safely until the event ends
-- If an event is canceled, attendees get a refund plus a 2 XFI gas fee compensation from the organiser (Future Implementation)
-
-### Revenue Management
-
-- XFI payments held in contract
-- 60% minimum attendance requirement
-- Automated revenue release post-event
-- Manual release option for owner
-
-### Event Verification System
-
-- Attendance tracked through QR codes or wallet authentication
-- Attendee-controlled attendance marking
-- Bulk verification support by an attendee that registered for others (Future Implementation)
-- Attendance rate calculation
-- Revenue release conditions
-
-## Contract Constants
-
-- `FREE_TICKET_PRICE`: 0 XFI
-- `MINIMUM_ATTENDANCE_RATE`: 60%
-
-## Error Handling
-
-- Custom errors for gas optimization
-- Comprehensive validation checks
-- Secure payment processing
-
-Smart Contract Repository: https://github.com/CityBlockLab/TicketCitySmartContract
-
-## Development Environment
-
-### Prerequisites
+## 📋 Prerequisites
 
 - Node.js (v16 or higher)
-- npm or yarn
-- Git
-- Alchemy API key for CrossFi Testnet access
+- npm or yarn package manager
+- Running backend API server
 
-### Project Setup
+## ⚡ Quick Start
 
+### 1. Clone & Install
 ```bash
-# Clone repository
-git clone https://github.com/CityBlockLab/TicketCityFrontend
-cd TicketCityFrontend
-
-# Install dependencies
-yarn
-
-# Copy environment file
-check hardhat config file...
+git clone <repository-url>
+cd todo-frontend
+npm install
 ```
 
-## Installation Instructions
+### 2. Environment Setup
+Create a `.env` file in the root directory:
+```env
+VITE_API_URL=http://localhost:5000
+```
 
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn
-- Git
-
-### Getting Started
-
-````bash
-# Clone repository
-git clone https://github.com/CityBlockLab/Ticket_City_Smart_Contract
-cd Ticket_City_Smart_Contract
-
-# Install dependencies
-yarn install
-
-# Start development server
+### 3. Start Development Server
+```bash
 npm run dev
+```
 
-## Development Workflow
+The application will start on `http://localhost:5173`
 
+## 🔗 Backend Connection
 
+Ensure your backend API is running on the URL specified in `VITE_API_URL`. The frontend will automatically connect to:
+- **Local Development**: http://localhost:5000
+- **Production**: Update `.env` with your deployed backend URL
 
-## Contributing Guidelines
+## 🎨 Key Components
 
-### Issue Management
+### 📝 TodoForm
+- Create new todos with title, description, priority, category, and due date
+- Form validation and error handling
+- Priority color preview
 
-- Use provided issue templates
-- Tag with appropriate labels
-- Include detailed description
-- Tag repository @devbigeazi
+### 📋 TodoItem  
+- Display todo information with priority color coding
+- Inline editing capabilities
+- Due date indicators (Today, Overdue, etc.)
+- Toggle completion status
+- Delete functionality
 
-2. **Picking Issues**
-   - Comment on the issue you want to work on
-   - Wait for assignment
-   - Tag repository @devbigeazi
+### 🔍 FilterBar
+- Real-time search across title and description
+- Filter by completion status (All, Pending, Completed)
+- Filter by priority level (All, High, Medium, Low)
+- Filter by category
+- Clear all filters button
 
-### Branch Management
+### 📊 Statistics
+- Total, completed, and pending task counts
+- Visual progress indicators
+- Quick overview of productivity
+
+### 🎛️ Header
+- Application branding and navigation
+- Quick links to GitHub, frontend demo, backend API, and documentation
+- Responsive navigation menu
+
+## 🗂️ Project Structure
+```
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx         # App header with navigation
+│   │   ├── TodoForm.tsx       # Create/edit todo form
+│   │   ├── TodoItem.tsx       # Individual todo display
+│   │   └── FilterBar.tsx      # Search and filter controls
+│   ├── hooks/
+│   │   └── useTodos.ts        # Custom hook for todo management
+│   ├── services/
+│   │   └── api.ts             # API client and methods
+│   ├── types/
+│   │   └── Todo.ts            # TypeScript interfaces
+│   ├── App.tsx                # Main application component
+│   ├── App.css                # Global styles
+│   ├── main.tsx               # Application entry point
+│   └── vite-env.d.ts          # Vite environment types
+├── public/
+├── index.html                 # HTML template
+├── package.json
+├── tsconfig.json
+├── vite.config.ts             # Vite configuration
+├── tailwind.config.js         # TailwindCSS configuration
+├── .env                       # Environment variables
+└── README.md
+```
+
+## 📜 Available Scripts
 
 ```bash
-# Create new feature branch
-git checkout -b feature/issue-number-description
+npm run dev        # Start development server with HMR
+npm run build      # Build for production
+npm run preview    # Preview production build locally
+npm run lint       # Run ESLint for code quality
+```
 
-# Create new bugfix branch
-git checkout -b fix/issue-number-description
+## 🎯 Key Features Walkthrough
 
-# Create new documentation branch
-git checkout -b docs/issue-number-description
-````
+### ✨ Todo Management
+1. **Create**: Click "Add Task" button or use the form
+2. **Edit**: Click the edit icon on any todo for inline editing
+3. **Complete**: Click the circle icon to toggle completion
+4. **Delete**: Click the trash icon to remove todos
 
-### Pull Request Process
+### 🔍 Smart Filtering
+- **Search**: Type in the search box to find todos by title/description
+- **Status Filter**: Show all, pending, or completed todos
+- **Priority Filter**: Filter by High, Medium, or Low priority
+- **Category Filter**: Filter by specific categories
+- **Combined Filters**: Use multiple filters simultaneously
 
-1. **Before Submitting**
+### 📊 Analytics
+- Toggle statistics view to see:
+  - Total task count
+  - Completion statistics  
+  - Progress overview
 
-   - Run tests: `npx hardhat test`
-   - Generate coverage: `npx hardhat coverage`
-   - Update documentation if needed
-   - Ensure clean compilation
+### 📱 Responsive Design
+- **Desktop**: Full-featured interface with sidebar navigation
+- **Tablet**: Adapted layout with collapsible elements
+- **Mobile**: Touch-friendly interface with optimized navigation
 
-2. **Submission Requirements**
+## 🌍 Environment Variables
 
-   - Link related issue(s)
-   - Provide detailed description
-   - Include test results
-   - Tag repository owner
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_URL` | Backend API base URL | `http://localhost:5000` |
 
-3. **Review Process**
-   - Address review comments
-   - Update PR as needed
-   - Maintain communication
+## 🚀 Deployment
 
-### Code Standards
+### Vercel (Recommended)
+1. Connect your GitHub repository to Vercel
+2. Set environment variable: `VITE_API_URL=https://todobackend.buyinbytes.com`
+3. Deploy automatically on every push
 
-- Follow Solidity style guide
-- Use NatSpec comments
-- Implement proper error handling
-- Maintain test coverage
-- Follow gas optimization practices
+### Netlify
+1. Build the project: `npm run build`
+2. Upload `dist` folder to Netlify
+3. Set environment variables in Netlify dashboard
 
-## Security Considerations
+### Manual Deployment
+```bash
+# Build for production
+npm run build
 
-1. **Access Control**
+# Serve the dist folder with any static server
+npm install -g serve
+serve -s dist
+```
 
-   - Implement role-based access
-   - Use OpenZeppelin's Ownable where appropriate
-   - Validate all inputs
+## 🎨 Customization
 
-2. **Payment Handling**
+### Colors & Themes
+Update `tailwind.config.js` to customize:
+```javascript
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        50: '#eff6ff',
+        500: '#3b82f6',
+        600: '#2563eb',
+        700: '#1d4ed8',
+      }
+    }
+  }
+}
+```
 
-   - Use pull over push payments
-   - Implement reentrancy guards
-   - Handle edge cases
+### Priority Colors
+Modify priority colors in components:
+```typescript
+const priorityColors = {
+  low: 'bg-green-100 text-green-800 border-green-300',
+  medium: 'bg-yellow-100 text-yellow-800 border-yellow-300',
+  high: 'bg-red-100 text-red-800 border-red-300',
+};
+```
 
-3. **Smart Contract Security**
-   - Follow SCSVS guidelines
-   - Implement emergency stops
-   - Document assumptions
-   - Consider gas limitations
+## 🔧 Configuration
 
-## Support and Resources
+### Vite Configuration
+The `vite.config.ts` includes:
+- React plugin for JSX support
+- Development server configuration
+- Build optimization settings
+- Environment variable prefixing
 
-- GitHub Issues: Technical problems and bug reports
-- Telegram Community: General discussion and support
-- Documentation: Comprehensive guides and references
-- Security: Private disclosure process for vulnerabilities
+### TailwindCSS
+Pre-configured with:
+- Custom color palette
+- Responsive design utilities
+- Component-friendly classes
+- Optimized for production builds
 
-For additional support or questions:
+## 📱 Browser Support
 
-1. Check existing documentation
-2. Search closed issues
-3. Join Telegram community
-4. Contact @devbigeazi
+- **Chrome** 88+
+- **Firefox** 85+
+- **Safari** 14+
+- **Edge** 88+
 
-## All tests passed
+## 🐛 Troubleshooting
 
-<img width="634" alt="tickect_city_test" src="https://github.com/user-attachments/assets/d1763712-6829-4711-b00d-3486a8f90ecc" />
+**API Connection Issues:**
+```bash
+# Check if backend is running
+curl http://localhost:5000/health
 
-## License
+# Verify environment variable
+echo $VITE_API_URL
+```
+
+**Build Issues:**
+```bash
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+
+# Clear Vite cache
+rm -rf .vite
+```
+
+**TypeScript Errors:**
+- Ensure all types are properly imported
+- Check `src/vite-env.d.ts` for environment variable types
+- Verify backend API response matches frontend types
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Make changes with proper TypeScript types
+4. Test thoroughly across different screen sizes
+5. Commit changes (`git commit -m 'Add amazing feature'`)
+6. Push to branch (`git push origin feature/amazing-feature`)
+7. Open Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🔗 Links
+
+- **Backend Repository**: [TaskMaster Pro Backend](https://github.com/kemsguy7/taskmaster-backend)
+- **API Documentation**: http://localhost:5000/api-docs or https://todobackend.buyinbytes.com/api-docs
+- **Design System**: Built with TailwindCSS
+- **Icons**: [Lucide React](https://lucide.dev)
+
+---
+
+**Built with ❤️ using React, TypeScript, and TailwindCSS**
