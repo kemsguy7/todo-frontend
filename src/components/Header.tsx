@@ -1,31 +1,24 @@
 
-// src/components/Header.tsx
 import React from 'react';
 import { CheckSquare, Github, Globe, Server, FileText } from 'lucide-react';
 
 const Header: React.FC = () => {
   const links = [
     {
-      label: 'GitHub',
-      url: 'https://github.com/yourusername/todo-app',
+      label: 'Frontend GitHub',
+      url: 'https://github.com/kemsguy7/todo-frontend/',
       icon: Github,
-      description: 'View source code'
+      description: 'View frontend source code'
     },
     {
-      label: 'Frontend',
-      url: 'https://todo-app-frontend.vercel.app',
-      icon: Globe,
-      description: 'Live frontend demo'
-    },
-    {
-      label: 'Backend',
-      url: 'https://todo-app-backend.onrender.com',
-      icon: Server,
-      description: 'API server'
+      label: 'Backend Github',
+      url: 'https://github.com/kemsguy7/taskmaster-backend',
+      icon: Github,
+      description: 'View backend source code'
     },
     {
       label: 'API Docs',
-      url: 'https://todo-app-backend.onrender.com/api/docs',
+      url: 'https://todobackend.buyinbytes.com/api-docs',
       icon: FileText,
       description: 'API documentation'
     }
