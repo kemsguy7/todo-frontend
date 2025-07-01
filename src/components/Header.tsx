@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     },
     {
       label: 'API Docs',
-      url: 'https://todobackend.buyinbytes.com/api-docs',
+      url: 'https://taskmaster-backend-wyfc.onrender.com/api-docs',
       icon: FileText,
       description: 'API documentation'
     }

@@ -167,7 +167,7 @@ npm run lint       # Run ESLint for code quality
 
 ### Vercel (Recommended)
 1. Connect your GitHub repository to Vercel
-2. Set environment variable: `VITE_API_URL=https://todobackend.buyinbytes.com`
+2. Set environment variable: `VITE_API_URL=https://taskmaster-backend-wyfc.onrender.com`
 3. Deploy automatically on every push
 
 ### Netlify
