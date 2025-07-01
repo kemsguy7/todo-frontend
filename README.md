@@ -280,7 +280,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **Backend Repository**: [TaskMaster Pro Backend](https://github.com/kemsguy7/taskmaster-backend)
-- **API Documentation**: http://localhost:5000/api-docs or https://todobackend.buyinbytes.com/api-docs
+- **API Documentation**: http://localhost:5000/api-docs or https://taskmaster-backend-wyfc.onrender.com/api-docs
 - **Design System**: Built with TailwindCSS
 - **Icons**: [Lucide React](https://lucide.dev)
 

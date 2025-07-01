@@ -1,7 +1,5 @@
-
 /// <reference types="vite/client" />
 
-// src/services/api.ts
 import axios from 'axios';
 
 import { Todo, CreateTodoDto, UpdateTodoDto, TodoStats } from '../types/Todos';
